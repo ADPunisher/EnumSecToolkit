@@ -30,7 +30,7 @@ function Show-Menu {
     Write-Host "================================================"
     Write-host "`n"
     Write-Host $banner 
-    Write-host "`n Authors: Matan Bahar and Yehuda Smirnov`n Version: 0.2`n"
+    Write-host "`n Authors: Matan Bahar and Yehuda Smirnov`n Version: 0.2 beta `n"
     Write-Host "================ EnumSecToolKit ================"
     Write-host "`nOutput set to: $outputfile`n" -ForegroundColor Yellow
     Write-Host '1: Run Script EnumDomainLDAP.ps1'
