@@ -38,3 +38,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - Authors: [Matan Bahar](https://www.linkedin.com/in/matan-bahar-66460a1b0/) and [Yehuda Smirnov](https://www.linkedin.com/in/yehuda-smirnov/)
 - Version: 0.2 beta
+
+## Video Proof-of-Concept
+https://youtu.be/7sc-0Fp9u8c
