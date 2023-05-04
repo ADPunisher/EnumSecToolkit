@@ -55,19 +55,19 @@ function enumDomainWMI () {
         Add-Content $OutputFile "The user $User is not a member of any group" -Encoding ascii
     }
 
-# Gather information about groups in another domain
-Add-Content $OutputFile "`n=== Group Info for Another Domain ===" -Encoding ascii
-$Domain = Read-Host "Please insert the domain name you would like to perform group enumeration"
-$groups = Get-CimInstance -ClassName win32_groupindomain | Where-Object {$_.GroupComponent -match $Domain} | Foreach-Object {[wmi]$_.PartComponent}
-if ($groups) {
-    Add-Content $OutputFile "The following groups are available in the $Domain domain:`n"
-    foreach ($group in $groups) {
-        Add-Content $OutputFile "Group Name: $($group.Name)" -Encoding ascii
-        Add-Content $OutputFile "Group Description: $($group.Description)" -Encoding ascii
-        Add-Content $OutputFile "Group SID: $($group.SID)" -Encoding ascii
-        Add-Content $OutputFile "------------------"
+    # Gather information about groups in another domain
+    Add-Content $OutputFile "`n=== Group Info for Another Domain ===" -Encoding ascii
+    $Domain = Read-Host "Please insert the domain name you would like to perform group enumeration"
+    $groups = Get-CimInstance -ClassName win32_groupindomain | Where-Object {$_.GroupComponent -match $Domain} | Foreach-Object {[wmi]$_.PartComponent}
+    if ($groups) {
+        Add-Content $OutputFile "The following groups are available in the $Domain domain:`n"
+        foreach ($group in $groups) {
+            Add-Content $OutputFile "Group Name: $($group.Name)" -Encoding ascii
+            Add-Content $OutputFile "Group Description: $($group.Description)" -Encoding ascii
+            Add-Content $OutputFile "Group SID: $($group.SID)" -Encoding ascii
+            Add-Content $OutputFile "------------------"
+        }
+    } else {
+        Add-Content $OutputFile "There are no groups available in the $Domain domain" -Encoding ascii
     }
-} else {
-    Add-Content $OutputFile "There are no groups available in the $Domain domain" -Encoding ascii
-}
 }
